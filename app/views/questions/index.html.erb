@@ -6,9 +6,9 @@
         <%= link_to question.title, question %>
       </h4>
       <% if !question.resolved %>
-        <p style="color: red">Open</p>
+        <p style="color: red">Unresolved</p>
       <% else %>
-        <p style="color: green">Closed</p>
+        <p style="color: green">Resolved</p>
       <% end %>
     </div>
   </div>
