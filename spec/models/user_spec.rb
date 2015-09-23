@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
   # Shoulda tests for name
   it { should validate_presence_of(:name) }
   it { should validate_length_of(:name).is_at_least(1) }
+  it { should allow_value("Jordan Epps").for(:name) }
+  it { should_not allow_value("jordan epps").for(:name) }
 
   # Shoulda tests for email
   it { should validate_presence_of(:email) }
@@ -30,11 +32,16 @@ RSpec.describe User, type: :model do
 
   describe "invalid user" do
     let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
+    let(:user_with_invalid_name_format) { User.new(name: "jordan epps", email: "user@bloccit.com") }
     let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
     let(:user_with_invalid_email_format) { User.new(name: "Bloccit User", email: "invalid_format") }
 
     it "should be an invalid user due to blank name" do
       expect(user_with_invalid_name).to_not be_valid
+    end
+
+    it "should be an invalid user due to incorrectly formmated name" do
+      expect(user_with_invalid_name_format).to_not be_valid
     end
 
     it "should be an invalid user due to blank email" do
