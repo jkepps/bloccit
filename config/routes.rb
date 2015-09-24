@@ -3,8 +3,10 @@ Rails.application.routes.draw do
     resources :posts, except: [:index]
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :confirm]
 
   get 'about' => 'welcome#about'
+  # get 'users/confirm'
+  post 'users/confirm' => 'users#confirm'
   root to: 'welcome#index'
 end
