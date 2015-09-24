@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_save do
-    name_array = self.name.split(" ")
+    name_array = []
+    name_array = self.name.split(" ") unless self.name == nil
     name_array.each do |n|
       n.capitalize!
     end
