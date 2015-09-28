@@ -10,6 +10,14 @@ include RandomData
 end
 users = User.all
 
+# Create Labels
+5.times do
+  label = Label.create!(
+    name: RandomData.random_word
+  )
+end
+labels = Label.all
+
 # Create Topics
 15.times do
   Topic.create!(
@@ -18,6 +26,7 @@ users = User.all
   )
 end
 topics = Topic.all
+
 
 # Create Posts
 50.times do
@@ -29,6 +38,11 @@ topics = Topic.all
   )
 end
 posts = Post.all
+
+50.times do
+  posts.sample.labels << labels.sample
+  topics.sample.labels << labels.sample
+end
 
 # Create Comments
 100.times do
