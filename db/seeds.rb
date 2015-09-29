@@ -18,11 +18,20 @@ users = User.all
 end
 labels = Label.all
 
+# Create Rating
+(0..2).each do |n|
+  Rating.create!(
+    severity: n
+  )
+end
+ratings = Rating.all
+
 # Create Topics
 15.times do
   Topic.create!(
   name:         RandomData.random_sentence,
-  description:  RandomData.random_paragraph
+  description:  RandomData.random_paragraph,
+  rating_id: ratings.sample.id
   )
 end
 topics = Topic.all
@@ -34,7 +43,8 @@ topics = Topic.all
     user: users.sample,
     topic: topics.sample,
     title: RandomData.random_sentence,
-    body: RandomData.random_paragraph
+    body: RandomData.random_paragraph,
+    rating_id: ratings.sample.id
   )
 end
 posts = Post.all

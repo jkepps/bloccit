@@ -1,4 +1,4 @@
-<h1><%= @topic.name %></h1>
+<h1><%= @topic.name %><%= render Rating.find(@topic.rating_id) %></h1>
 
 <% if user_is_authorized_for_topics? %>
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>

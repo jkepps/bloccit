@@ -9,6 +9,8 @@ RSpec.describe Post, type: :model do
   it { should have_many(:labelings) }
   it { should have_many(:labels).through(:labelings) }
 
+  it { should belong_to(:rating) }
+
   it { should have_many(:comments) }
   it { should belong_to(:topic) }
   it { should belong_to(:user) }
