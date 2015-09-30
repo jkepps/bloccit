@@ -32,3 +32,5 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 # Used for encrypting User passwords
 gem 'bcrypt'
+# Used for creating environment variables for sensitive data
+gem 'figaro', '1.0'
