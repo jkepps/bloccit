@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+	<h1>You submitted a new post to "<%= @post.topic.name %>"</h1>
+	<h3>
+		Title: <%= @post.title %>
+	</h3>
+	<p>
+		"<%= @post.body %>"
+	</p>
+	<small>You will automatically recieve email updates when other users comment on your post.</small>
+	<p>
+		<%= link_to "View Post on site", topic_post_url(@post.topic, @post) %>
+	</p>
+</body>
+</html>

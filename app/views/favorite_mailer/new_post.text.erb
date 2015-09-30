@@ -1,0 +1,10 @@
+You submitted a new post to "<%= @post.topic.name %>"
+<%= "=" * (@post.topic.name.length + 12) %>
+
+Title: <%= @post.title %>
+
+"<%= @post.body %>"
+
+You will automatically recieve email updates when users comment on your post.
+
+Visit online at: <%= topic_post_url(@post.topic, @post) %>
