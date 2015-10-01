@@ -2,6 +2,11 @@
 	<div class="media-body">
 		<h4 class="media-heading">
 		    <%= link_to topic.name, topic %>
+		    <% if topic.public %>
+		    	<%= button_to "Public", "#", class: 'btn btn-xs btn-primary' %>
+		    <% else %>
+		    	<%= button_to "Private", "#", class: 'btn btn-xs btn-danger' %>
+	    	<% end %>
 		</h4>
 		<small>
 		    <%= topic.description %>
