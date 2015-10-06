@@ -5,9 +5,12 @@ class Api::V1::BaseController < ApplicationController
 	rescue_from ActionController::ParameterMissing, with: :malformed_request
 
 	def authenticate_user
+		# puts "*" * 15
 		authenticate_or_request_with_http_token do |token, options|
 			@current_user = User.find_by(auth_token: token)
 		end
+		# puts @current_user.inspect
+		# puts "=" * 20
 	end
 
 	def authorize_user
