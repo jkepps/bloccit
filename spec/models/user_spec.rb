@@ -53,6 +53,9 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email_format).to_not be_valid
     end
 
+  end
+
+  describe "roles" do
     it "should respond to role" do
       expect(user).to respond_to(:role)
     end
@@ -64,9 +67,7 @@ RSpec.describe User, type: :model do
     it "should resond to member?" do
       expect(user).to respond_to(:member?)
     end
-  end
-
-  describe "roles" do
+    
     it "should be member by default" do
       expect(user.role).to eql("member")
     end
